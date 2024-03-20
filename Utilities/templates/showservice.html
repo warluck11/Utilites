@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" align="center">
+
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Service</th>
+            <th>Status</th>
+
+        {% if request.user.is_staff %}
+
+            <th>Change Status</th>
+            
+        {% endif %}
+        </tr>
+
+        {% for x in data %}
+        <tr>
+            <td>{{ x.name }}</td>
+            <td>{{ x.address }}</td>
+            <td>{{ x.email }}</td>
+            <td>{{ x.mobile }}</td>
+            <td>{{ x.service }}</td>
+            
+
+        {% if request.user.is_staff %}
+            <td>{{ x.status }}</td>
+            <td><a href="/edit/{{ x.id }}">Change Status</a></td>    
+
+        {% else %}
+
+            <td>{{ x.status }}</td>
+
+        {% endif %}
+
+
+        </tr>
+
+        {% endfor %}
+
+        <a href="/"><p align="center">Home</p></a>
+
+    </table>
+</body>
+</html>

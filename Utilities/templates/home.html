@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">Home Page</h1>
+
+    <br><br>
+    
+    
+
+        {% if request.user.is_authenticated %}
+
+            <a href="/createservice"><p align="center">Request Service</p></a>
+            <a href="/showservice"><p align="center">View Request Status</p></a>
+            <a href="/logout"><p align="center">Logout</p></a>
+
+        
+        
+        {% else %}
+
+            <a href="/register"><p align="center">Register</p></a>
+            <a href="/login"><p align="center">Login</p></a>
+
+        {% endif %}
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    {% if request.user.is_authenticated %}
+
+    <h1 align="center">Service Form</h1>
+
+    <form method="POST" action="">
+
+        {% csrf_token %}
+
+        <table align="center" border="1">
+
+            <tr>
+                <th>Name</th>
+                <td><input type="text" name="name"></td>
+            </tr>
+
+            <tr>
+                <th>Address</th>
+                <td><input type="text" name="address"></td>
+            </tr>
+
+            <tr>
+                <th>Email</th>
+                <td><input type="email" name="email"></td>
+            </tr>
+
+            <tr>
+                <th>Mobile</th>
+                <td><input type="number" name="mobile"></td>
+            </tr>
+
+            <tr>
+                <th>Service Type</th>
+                <td>
+                    <select name="service">
+                        <option value="Book Gas">Book Gas</option>
+                        <option value="New Connection">New Connection</option>
+                        <option value="Locate Distributor">Locate Distributor</option>
+                        <option value="Request Customer Service">Request Customer Service</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <th>File</th>
+                <td><input type="file" name="file"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="submit"></td>
+            </tr>
+
+        </table>
+
+    </form>
+
+    {% else %}
+
+        <h4 align="center">Kindly Login</h4>
+
+    {% endif %}
+
+</body>
+</html>

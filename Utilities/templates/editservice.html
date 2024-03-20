@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">Change Request</h1>
+
+        <table border="1" align="center">
+
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Service</th>
+                <th>Status</th>
+                <th>change </th>
+            </tr>
+
+                <form method="POST" action="">
+
+                    {% csrf_token %}
+
+                {% for x in data %}    
+
+            <tr>
+                <td>{{ x.name }}</td>
+                <td>{{ x.address }}</td>
+                <td>{{ x.email }}</td>
+                <td>{{ x.mobile }}</td>
+                <td>{{ x.service }}</td>
+                <td>
+                    <select name="status">
+                        <option value="{{ x.status }}">{{ x.status }}</option>
+                        <option value="Submitting">Submitting</option>
+                        <option value="Assessing">Assessing</option>
+                        <option value="Fulfilling">Fulfilling</option>
+                        <option value="Closed">Closed</option>
+                    </select>
+                </td>
+    
+                <td><input type="submit" value="submit"></td>
+
+            </tr>
+
+                {% endfor %}
+
+                </form>
+
+        </table>
+
+
+</body>
+</html>
